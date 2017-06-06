@@ -1,5 +1,5 @@
 const { getText, getPage } = require('translate-api');
-const { isUrl, isLangJP } = require('../util/index');
+const { isUrl, isLangJP, trim } = require('../util/index');
 
 const translateText = async(ctx, next) => {
   console.log("-----api-------")
@@ -8,6 +8,9 @@ const translateText = async(ctx, next) => {
   let text = ctx.request.body.text || ctx.query.t || 'hello world'
   let from = ctx.request.body.from || 'auto'
   let to = ctx.request.body.to || 'zh-CN'
+
+  text = trim(text)
+
 
   if (isLangJP(text)) {
     from = 'ja'
