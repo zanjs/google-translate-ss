@@ -16,6 +16,8 @@ const translateText = async(ctx, next) => {
     from = 'ja'
   }
 
+  console.log(from)
+
   let val = await getText(text, { to: to, from: from })
   ctx.body = val
 }

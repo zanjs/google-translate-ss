@@ -4,7 +4,7 @@ const isUrl = text => URLREGEXP.test(text);
 
 // 是否有日文
 const isLangJP = text => {
-  return /.*[\u3040-\u309F\u30A0-\u30FF]+.*$/.test(text)
+  return /.*[\u0800-\u4e00]+.*$/.test(text.replace(/[\r\n]/g, ""))
 }
 
 // 去左右控股
